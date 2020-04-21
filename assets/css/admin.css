@@ -20,3 +20,7 @@ span{
 #pagetitle{
     font-size:28px;
 }
+
+#navlink:hover{
+    background-color: grey;
+}

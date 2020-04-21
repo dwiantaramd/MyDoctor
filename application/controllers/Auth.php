@@ -27,10 +27,10 @@ class Auth extends CI_Controller
             if ($user) {
                 if ($password == $user['password']) {
                     $data = [
-                        'name' => $user['name'],
                         'username' => $user['username'],
                         'role' => $user['role']
                     ];
+                    $this->session->set_userdata($data);
                     if ($data['role'] == 1) {
                         redirect('Admin');
                     } else {
@@ -85,9 +85,10 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $this->session->session_destroy();
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         Logged Out </div>');
-        redirect('Auth');
+        redirect(base_url());
     }
 }
