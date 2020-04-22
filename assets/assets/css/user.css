@@ -1,0 +1,8 @@
+#logo{
+    margin-right: 30px;
+}
+
+#profil:link,#profil:visited{
+    color:black;
+    font-size: 15px;
+}

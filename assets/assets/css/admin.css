@@ -1,0 +1,26 @@
+#logo{
+    margin-right: 30px;
+}
+
+span{
+    padding-right: 15px;
+    color:black;
+    font-size: 15px;
+}
+
+#profil:link,#profil:visited{
+    color:black;
+    font-size: 15px;
+}
+
+#sidebar{
+    min-height: calc(95.5vh - 50px);
+}
+
+#pagetitle{
+    font-size:28px;
+}
+
+#navlink:hover{
+    background-color: grey;
+}
