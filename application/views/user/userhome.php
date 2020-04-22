@@ -19,9 +19,9 @@
                     <tr>
                         <th scope="row"><?= $i ?> </th>
                         <td><?= $ap['customer_name']; ?></td>
-                        <td><?= $m['doctor_name']; ?></td>
-                        <td><?= $m['specialist']; ?></td>
-                        <td><?= $m['hospital']; ?></td>
+                        <td><?= $ap['doctor_name']; ?></td>
+                        <td><?= $ap['specialist_name']; ?></td>
+                        <td><?= $ap['hospital_name']; ?></td>
                     </tr>
                     <?php $i++ ?>
                 <?php endforeach; ?>

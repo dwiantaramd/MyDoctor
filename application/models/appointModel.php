@@ -8,11 +8,19 @@ class appointModel extends CI_Model
         parent::__construct();
     }
 
-    public function getAllAppoint()
+    public function getAllAppointment()
     {
-        $this->db->select('doctor.*, hospital.hos_name as hospital_name');
-        $this->db->from('doctor');
-        $this->db->join('hospital', 'hospital.hospital_id = doctor.hospital_id');
-        return $this->db->get()->result_array();
+        return $this->db->get('appointment')->result_array();
     }
+
+    public function getAllAppointmentById($id)
+    {
+        return $this->db->get_where('appointment', ['appointment_id' => $id])->row_array();
+    }
+
+    public function createAppointment($data)
+    {
+        return $this->db->insert('appointment', $data);
+    }
+
 }
