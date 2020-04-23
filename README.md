@@ -1,5 +1,8 @@
 # Web-Programming-Final-Task
 MyDoctor as Final Task of Web Programming at Telkom University
+
+Web Developement using PHP Framework CodeIgniter
+
 Our Team :
 
 1. Edgar Vigo (1301180149)
