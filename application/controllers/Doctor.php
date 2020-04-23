@@ -138,4 +138,9 @@ class Doctor extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Doctor Data has been deleted</div>');
         redirect('Doctor');
     }
+
+    public function getDoctorId()
+    {
+        echo json_encode($this->doctorModel->getDoctorbyHos($_POST['id']));
+    }
 }

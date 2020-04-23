@@ -18,6 +18,11 @@ class hospitalModel extends CI_Model
         return $this->db->get_where('hospital', ['hospital_id' => $id])->row_array();
     }
 
+    public function getNumHospital()
+    {
+        return $this->db->get('hospital')->num_rows();
+    }
+
     public function insertHospital($data)
     {
         return $this->db->insert('hospital', $data);
@@ -34,5 +39,11 @@ class hospitalModel extends CI_Model
     {
         $this->db->where('hospital_id', $id);
         $this->db->delete('hospital');
+
+        $this->db->where('hospital_id', $id);
+        $this->db->delete('doctor');
+
+        $this->db->where('hospital_id', $id);
+        $this->db->delete('appointment');
     }
 }

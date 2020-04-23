@@ -1,4 +1,24 @@
-$(function () {
+$(document).ready(function () {
+
+    $('.appDetailBtn').on('click', function () {
+        const id = $(this).data('appointment_id');
+        $.ajax({
+            url: 'http://localhost/MyDoctor/Appointment/getAppointmentDetails',
+            data: { id: id },
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $('#cus_name').val(data.cus_name);
+                $('#hosp_name').val(data.hospital_name);
+                $('#doct_name').val(data.doctor_name);
+                $('#spec').val(data.specialist);
+                $('#app_date').val(data.appointment_date);
+                $('#complaints').val(data.complaints);
+            }
+        });
+    });
+
     $('.addHospitalbtn').on('click', function () {
         $('#LabelhospitalModal').html('Add Hospital Form');
         $('.footer-hospital button[type=submit]').html('Add');
@@ -84,6 +104,24 @@ $(function () {
         Swal.fire({
             title: 'Are you sure?',
             text: "This action also delete all appointment linked to this data",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                document.location.href = href;
+            }
+        })
+    });
+
+    $('.appDeleteBtn').on('click', function (e) {
+        e.preventDefault();
+        const href = $(this).attr('href');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This action can't be undone ",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',

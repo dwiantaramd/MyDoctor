@@ -1,0 +1,13 @@
+.navbar-brand{
+    font-family: Viga;
+    font-size:32px;
+}
+body{
+    font-family: Poppins;
+}
+
+@media (max-width: 992px){
+    table{
+        font-size:10px;
+    }
+}

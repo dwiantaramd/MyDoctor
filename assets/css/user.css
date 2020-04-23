@@ -1,0 +1,90 @@
+.navbar-brand{
+    font-family: Viga;
+    font-size:32px;
+}
+
+.nav-pills > li > a.active {
+    background-color: gray!important;
+    color:white!important;
+}
+
+.navbar ul li a:focus{
+    background-color: gray!important;
+    color:white!important;
+}
+
+
+.carousel-item:after {
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,0.6);
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    text-shadow: 1px 1px 10px black;
+}
+
+.carousel-caption span{
+    font-weight: 500;
+}
+
+.carousel-caption hr{
+    background-color: white;
+    width: 50%;
+}
+
+.carousel-caption p,.btn{
+    font-size:20px;
+}
+
+#Appointment hr{
+    border-top: 2px solid #b4b4b4;
+    width: 60%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 992px){
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .carousel-caption h2{
+        font-size: 20px;
+    }
+
+    .carousel-caption p{
+        font-size: 10px;
+    }
+
+    .carousel-caption .btn{
+        font-size: 10px;
+    }
+
+    .jumbotron p{
+        font-size:18px;
+        text-align: center;
+    }
+
+    .jumbotron h1{
+        font-size:38px;
+        text-align: center;
+    }
+
+    .jumbotron img{
+        display: block;
+        margin-left: 42%;
+        width: 20%;
+        height: 90%;
+
+    }
+}

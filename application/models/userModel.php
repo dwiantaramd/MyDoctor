@@ -13,6 +13,12 @@ class userModel extends CI_Model
         return $this->db->get('user')->result_array();
     }
 
+    public function getNumUser()
+    {
+        $this->db->where('role', 2);
+        return $this->db->get('user')->num_rows();
+    }
+
     public function getUser($username)
     {
         return $this->db->get_where('user', ['username' => $username])->row_array();

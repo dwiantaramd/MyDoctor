@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/all.min.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/admin.css'); ?>">
+
     <title><?= $title ?></title>
 
 </head>
@@ -22,7 +26,7 @@
         <img id="logo" src="<?= base_url('assets/'); ?>img/Logo.png" height="70" width="70">
         <a id="pagetitle" class="navbar-brand" href="<?= base_url('Admin'); ?>">Administrator Dashboard</a>
         <div class="dropdown show ml-auto">
-            <a id="profil" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id="profil" class="nav-link dropdown-toggle DropDrop" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span><?= $user['name']; ?></span>
                 <img id="profile" class="img-profile rounded-circle" src="<?= base_url('assets/img/') . $user['image']; ?>" height="50" width="50">
             </a>
@@ -51,7 +55,7 @@
                     <hr class="bg-secondary">
                 </li>
                 <li class="nav-item ml-2">
-                    <a id="navlink" class="nav-link text-white" href="#"><i class="fas fa-notes-medical mr-2"></i>Appointment</a>
+                    <a id="navlink" class="nav-link text-white" href="<?= base_url('Appointment'); ?>"><i class="fas fa-notes-medical mr-2"></i>Appointment</a>
                     <hr class="bg-secondary">
                 </li>
                 <li id="navlink" class="nav-item ml-2">

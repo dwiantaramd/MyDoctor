@@ -25,6 +25,16 @@ class DoctorModel extends CI_Model
         return $this->db->get()->row_array();
     }
 
+    public function getDoctorbyHos($id)
+    {
+        return $this->db->get_where('doctor', ['hospital_id' => $id])->result_array();
+    }
+
+    public function getNumDoctor()
+    {
+        return $this->db->get('doctor')->num_rows();
+    }
+
     public function getHospital()
     {
         return $this->db->get('hospital')->result_array();
@@ -46,5 +56,8 @@ class DoctorModel extends CI_Model
     {
         $this->db->where('doctor_id', $id);
         $this->db->delete('doctor');
+
+        $this->db->where('doctor_id', $id);
+        $this->db->delete('appointment');
     }
 }

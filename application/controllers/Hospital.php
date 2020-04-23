@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Hospital extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
@@ -65,7 +66,7 @@ class Hospital extends CI_Controller
             }
         }
     }
-
+    /* FOR AJAX*/
     public function getEdit()
     {
         echo json_encode($this->hospitalModel->getHospitalbyId($_POST['id']));
