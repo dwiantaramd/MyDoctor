@@ -7,6 +7,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Role</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
@@ -23,6 +24,7 @@
                             } else {
                                 echo 'Member';
                             }; ?></td>
+                        <td><img src="<?= base_url('assets/img/') . $m['image']; ?>" style="width:70px;height:70px">></td>
                         <td><?= $m['name']; ?></td>
                         <td><?= $m['username']; ?></td>
                         <td><?= $m['email']; ?></td>

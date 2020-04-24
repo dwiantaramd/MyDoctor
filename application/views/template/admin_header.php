@@ -31,8 +31,7 @@
                 <img id="profile" class="img-profile rounded-circle" src="<?= base_url('assets/img/') . $user['image']; ?>" height="50" width="50">
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-
-                <a class="dropdown-item" href=""><i class="fas fa-user mr-2"></i>My Profile</a>
+                <button class="dropdown-item" data-toggle="modal" data-target="#editProfileModal"><i class="fas fa-edit mr-2"></i>My Profile</a></button>
                 <a class="dropdown-item" href="<?= base_url('Auth/logout'); ?>"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
             </div>
         </div>

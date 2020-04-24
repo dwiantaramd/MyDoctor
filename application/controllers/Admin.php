@@ -25,4 +25,47 @@ class Admin extends CI_Controller
         $this->load->view('admin/adminhome');
         $this->load->view('template/admin_footer');
     }
+
+    public function editProfile($id)
+    {
+        $this->form_validation->set_rules('edit_name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('edit_phone', 'Phone', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->index();
+        } else {
+            $name = $this->input->post('edit_name');
+            $phone = $this->input->post('edit_phone');
+            $image = $_FILES['edit_image']['name'];
+
+            if (!$image) {
+                $data = [
+                    'name' => $name,
+                    'phone' => $phone,
+                ];
+                $this->userModel->updateUser($data, $id);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Profile has been updated</div>');
+                redirect('Admin');
+            } else {
+                $config['upload_path']      = './assets/img';
+                $config['allowed_types']    = 'jpg|png|gif';
+
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('edit_image')) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Edit Profile Failed</div>');
+                    redirect('Admin');
+                } else {
+                    $image = $this->upload->data('file_name');
+                    $data = [
+                        'name' => $name,
+                        'phone' => $phone,
+                        'image' => $image
+                    ];
+                    $this->userModel->updateUser($data, $id);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Profile has been updated</div>');
+                    redirect('Admin');
+                }
+            }
+        }
+    }
 }

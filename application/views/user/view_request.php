@@ -20,8 +20,8 @@
                             <?= $user['username'] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><i class="fas fa-edit mr-2"></i>Edit Profile</a>
-                            <a class="dropdown-item" href="#"><i class="fas fa-key mr-2"></i>Change Password</a>
+                            <button class="dropdown-item" data-toggle="modal" data-target="#editProfileModal"><i class="fas fa-edit mr-2"></i>Edit Profile</a></button>
+                            <button class="dropdown-item" data-toggle="modal" data-target="#changePasswordModal"><i class="fas fa-key mr-2"></i>Change Password</button>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?= base_url('Auth/logout'); ?>"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
                         </div>

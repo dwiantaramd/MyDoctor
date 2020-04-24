@@ -40,8 +40,8 @@
                             <?= $user['username'] ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><i class="fas fa-edit mr-2"></i>Edit Profile</a>
-                            <a class="dropdown-item" href="#"><i class="fas fa-key mr-2"></i>Change Password</a>
+                            <button class="dropdown-item" data-toggle="modal" data-target="#editProfileModal"><i class="fas fa-edit mr-2"></i>Edit Profile</a></button>
+                            <button class="dropdown-item" data-toggle="modal" data-target="#changePasswordModal"><i class="fas fa-key mr-2"></i>Change Password</button>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?= base_url('Auth/logout'); ?>"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
                         </div>
@@ -134,8 +134,10 @@
                     <div class="card">
                         <img class="card-img-top" src="<?= base_url('assets/img/hospitalhome.jpg') ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Total Hospital</h5>
-                            <div class="display-4">1.000<i class="fas fa-hospital ml-5 bgcard" style="opacity:0.4"></i></div>
+                            <h3 class="card-title">Top Quality Hospital</h3>
+                            <p class="card-text">Quality pharmacies and laboratories,
+                                reputed hospitals with the aim of transforming the science and delivery of
+                                integrated healthcare and home based solution delivery.</p>
                         </div>
                     </div>
                 </div>
@@ -143,8 +145,9 @@
                     <div class="card">
                         <img class="card-img-top" src="<?= base_url('assets/img/doctorhome.jpg') ?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Total Doctor</h5>
-                            <div class="display-4">1.000<i class="fas fa-user-md ml-5 bgcard" style="opacity:0.4"></i></div>
+                            <h3 class="card-title">Professional medical teams</h3>
+                            <p class="card-text">Exceptional healthcare begins with great doctors — known for their expertise,
+                                compassion and quest for new medical knowledge. Finding the right one is an important decision.</p>
                         </div>
                     </div>
                 </div>
@@ -157,14 +160,92 @@
         <div class="container">
             <div class="row text-center text-white">
                 <div class="col mt-3">
-                    <div class="display-4">Contact Us</div>
-                    <hr class="bg-light" style="width:50%">
+                    <h3>Contact Us</h3>
+                    <hr class="bg-light" style="width:30%">
                     <p>123-456-789</p>
                     <p>myDoctor@gmail.com</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Modal Edit Profile -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="LabeleditProfileModal">Edit Profile Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" enctype="multipart/form-data" id="editProfileForm" action="<?= base_url('User/editProfile/') . $user['id'] ?>">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <img src="<?= base_url('assets/img/') . $user['image'] ?>" style="width:80px; height:80px">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Username</label>
+                            <input type="text" class="form-control" id="edit_username" name="edit_username" value="<?= $user['username'] ?>" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Full Name</label>
+                            <input type="text" class="form-control" id="edit_name" name="edit_name" value="<?= $user['name'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Email</label>
+                            <input type="text" class="form-control" id="edit_email" name="edit_email" value="<?= $user['email'] ?>" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Phone Number</label>
+                            <input type="text" class="form-control" id="edit_phone" name="edit_phone" value="<?= $user['phone'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Profile Picture</label>
+                            <input type="file" class="form-control" id="edit_image" name="edit_image">
+                        </div>
+                    </div>
+                    <div class="modal-footer footer-hospital">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Change password -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="LabeleditProfileModal">Change Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" enctype="multipart/form-data" id="editProfileForm" action="<?= base_url('User/changePassword/') . $user['id'] ?>">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="cur_password" name="cur_password" placeholder="Current Password">
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="password" class="form-control" id="new_password" name="new_password" placeholder="New Password">
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" id="re_password" name="re_password" placeholder="Re-Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer footer-hospital">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>

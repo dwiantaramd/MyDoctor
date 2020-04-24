@@ -2,6 +2,9 @@
     <div class="col-md-10 p-5 pt-2 bg-white">
         <h2><i class="fas fa-home mr-2"></i>Home</h2>
         <hr>
+        <?= $this->session->flashdata('message'); ?>
+        <?= form_error('edit_name', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+        <?= form_error('edit_phone', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <!-- Carousel -->
         <div class="row-md-10">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

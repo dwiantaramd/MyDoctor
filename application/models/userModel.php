@@ -24,8 +24,20 @@ class userModel extends CI_Model
         return $this->db->get_where('user', ['username' => $username])->row_array();
     }
 
+    public function getUserbyId($id)
+    {
+        return $this->db->get_where('user', ['id' => $id])->row_array();
+    }
+
     public function insertUser($data)
     {
         $this->db->insert('user', $data);
+    }
+
+    public function updateUser($data, $id)
+    {
+        $this->db->set($data);
+        $this->db->where('id', $id);
+        $this->db->update('user');
     }
 }
